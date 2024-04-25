@@ -1,0 +1,27 @@
+# permissions for end users to view pickuphandlers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: pickuphandler-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: pickup-operator
+    app.kubernetes.io/part-of: pickup-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: pickuphandler-viewer-role
+rules:
+- apiGroups:
+  - cache.pickup.com
+  resources:
+  - pickuphandlers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - cache.pickup.com
+  resources:
+  - pickuphandlers/status
+  verbs:
+  - get

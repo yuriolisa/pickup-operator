@@ -1,0 +1,31 @@
+# permissions for end users to edit pickuphandlers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: pickuphandler-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: pickup-operator
+    app.kubernetes.io/part-of: pickup-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: pickuphandler-editor-role
+rules:
+- apiGroups:
+  - cache.pickup.com
+  resources:
+  - pickuphandlers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - cache.pickup.com
+  resources:
+  - pickuphandlers/status
+  verbs:
+  - get

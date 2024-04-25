@@ -1,0 +1,12 @@
+apiVersion: cache.pickup.com/v1alpha1
+kind: PickupHandler
+metadata:
+  labels:
+    app.kubernetes.io/name: pickuphandler
+    app.kubernetes.io/instance: pickuphandler-sample
+    app.kubernetes.io/part-of: pickup-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: pickup-operator
+  name: pickuphandler-sample
+spec:
+  # TODO(user): Add fields here
